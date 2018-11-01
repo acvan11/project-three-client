@@ -88,77 +88,77 @@ class AllMoneyList extends Component {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[1] = moneyList.February.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[2] = moneyList.March.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[3] = moneyList.April.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[4] = moneyList.May.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[5] = moneyList.June.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[6] = moneyList.July.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[7] = moneyList.August.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[8] = moneyList.September.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[9] = moneyList.October.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[10] = moneyList.November.value.map(money => {
 			return(
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 						</p>
 						)})
 		monthJSX[11] = moneyList.December.value.map(money => {
@@ -166,7 +166,7 @@ class AllMoneyList extends Component {
 				<p>
 						Money from: {money.description}. Amount: {money.amount}. Date: {moment(money.date).calendar()}
 
-						<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>
+						{/*<input type='submit' className="submit-button" onClick={() => this.handleDelete(money._id)} value="Delete"/>*/}
 
 						</p>
 						)})
@@ -178,6 +178,10 @@ class AllMoneyList extends Component {
 				<Adding user={this.props.user} title={this.props.title}/>
 			</div>
 			<div>
+				<h2>November Adding</h2>
+				{monthJSX[10]}
+				<h3>Total: ${moneyList.November.total}</h3>
+				<hr/>
 				<h2>October Adding</h2>
 				{monthJSX[9]}
 				<h3>Total: ${moneyList.October.total}</h3>
