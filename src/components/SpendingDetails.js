@@ -4,6 +4,18 @@ import axios from 'axios';
 import SERVER_URL from '../constants/server';
 export default class SpendingDetails extends Component {
 
+  countProperties = obj=> {
+    var count = 0;
+
+    for (var property in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, property)) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
   handleDelete = (item) => {
     item.preventDefault();
   console.log('trying to delete', item)
@@ -24,9 +36,30 @@ export default class SpendingDetails extends Component {
 
 
   render() {
-    
+
+
 
     let spending = this.props.spendingFunction();
+console.log('this is original spending: ', spending)
+    var result2 = {}
+for (let i in spending){
+  if(this.countProperties(spending[i]) != 0){
+    result2[i] = spending[i]
+  }
+}
+    console.log('print new spending object: ^^^', result2)
+
+// var result2 = []
+// var obj2 = {}
+// for (let i in spending){
+//   if (this.countProperties(spending[i]) != 0){
+//     obj2[i] = spending[i]
+//     result2.push(obj2)
+//   }
+// }
+
+console.log('print new spending: ^^', result2)
+
       const spendingItems12 = (spending) => {
       let arr12 = []
       for (let key in spending["December"]){
@@ -41,7 +74,7 @@ export default class SpendingDetails extends Component {
       for (let key in spending["November"]){
       arr11.push({month: "November", data: {key: key, data: spending['November'][key]}})
     }
-      console.log('array of result: ', arr11);
+      console.log('array of result: november $$$ ', arr11);
       return arr11
     }
 
@@ -50,7 +83,7 @@ export default class SpendingDetails extends Component {
       for (let key in spending["October"]){
       arr10.push({month: "October", data: {key: key, data: spending['October'][key]}})
     }
-      console.log('array of result: ', arr10);
+      console.log('array of result october ^^^^: ', arr10);
       return arr10
     }
 
@@ -131,17 +164,44 @@ export default class SpendingDetails extends Component {
 
 
 		return(
+
 			<div>
+
+      <hr/>
+
+
+     
+    
+       <h1>November</h1>
+        {spendingItems11(spending).map(item => {
+          console.log('item in November $$$: ', item);
+          return (
+            <div>
+            
+              <h3>{item.data.key}</h3>
+            <table className="item-table"><thead><td className="item-spacing">Item</td><td className="item-spacing">$</td><td className="item-spacing">Date</td></thead>
+            <tbody>
+              {item.data.data.map(key => <tr ><td className="item-spacing">{key.description}</td><td className="item-spacing">{key.amount}</td><td className="item-spacing">{key.date}</td>
+              <td>  <input type='submit' className="submit-button" onClick={() => this.handleDelete(key.id)} value="Delete"/></td></tr>
+            )}
+              </tbody>
+            </table>
+
+            </div>
+            )
+        })}
+        <hr/>
+
        <h1>October</h1>
         {spendingItems10(spending).map(item => {
           console.log('item in October: ', item);
           return (
             <div>
-
+            
               <h3>{item.data.key}</h3>
             <table className="item-table"><thead><td className="item-spacing">Item</td><td className="item-spacing">$</td><td className="item-spacing">Date</td></thead>
             <tbody>
-              {item.data.data.map(key => <tr ><td className="item-spacing">{key.description}</td><td className="item-spacing">{key.amount}</td><td className="item-spacing">{moment(key.date).calendar()}</td>
+              {item.data.data.map(key => <tr ><td className="item-spacing">{key.description}</td><td className="item-spacing">{key.amount}</td><td className="item-spacing">{key.date}</td>
               <td>  <input type='submit' className="submit-button" onClick={() => this.handleDelete(key.id)} value="Delete"/></td></tr>
             )}
               </tbody>
